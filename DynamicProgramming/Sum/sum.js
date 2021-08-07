@@ -11,12 +11,25 @@ return memo[t];
 }
 return false;
 }
-console.log(isSum(7,[1,7]))
-console.log(isSum(700,[1,7]))
-console.log(isSum(71,[2,7]))
-console.log(isSum(9,[2,7]))
+// console.log(isSum(7,[1,7]))
+// console.log(isSum(700,[1,7]))
+// console.log(isSum(71,[2,7]))
+// console.log(isSum(9,[2,7]))
+const isSum2=(t,nums)=>{
 
-
+    if(t<0){return false}
+    if(t===0){return true}
+    for(let num of nums){
+    const tsum = t-num;
+    return isSum2(tsum,nums);
+    
+    }
+    return false;
+    }
+console.log(isSum2(7,[1,7]))
+console.log(isSum2(300,[14,7]))
+console.log(isSum2(71,[2,7]))
+console.log(isSum2(9,[2,7]))
 
 const Sum=(t,num, memo={})=>{
     if(t===0) return [];
